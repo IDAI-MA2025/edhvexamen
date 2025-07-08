@@ -78,10 +78,10 @@
 
       <label for="pan">Tipo de Pan:</label>
           <div class="radio-list">
-              <label for="clasico"><input type="radio">Clásico</label>
-              <label for="ajonjoli"><input type="radio">Con Ajonjolí (+20 MXN)</label>
-              <label for="integral"><input type="radio">Integral (+20 MXN)</label>
-              <label for="brioche"><input type="radio">Brioche (+50 MXN)</label>
+              <label for="clasico"><input type="radio" name="pan" value="0">Clásico</label>
+              <label for="ajonjoli"><input type="radio" name="pan" value="20">Con Ajonjolí (+20 MXN)</label>
+              <label for="integral"><input type="radio" name="pan" value="20">Integral (+20 MXN)</label>
+              <label for="brioche"><input type="radio" name="pan" value="50">Brioche (+50 MXN)</label>
           </div>
 
       <label>Ingredientes adicionales (5.00 MXN c/u):</label>
@@ -118,7 +118,7 @@
 
       <div class="total" id="total">Total: $0.00</div>
 
-      <button type="button">Calcular Total</button>
+      <button type="button" onclick="calcularTotal()">Calcular Total</button>
     </form>
     <div class="imagenes">
       <img src="" alt="">
@@ -127,4 +127,55 @@
     </div>
   </div>
 </body>
+
+<script>
+
+  var formulario = document.getElementById("pedidoForm")
+
+    function calcularTotal(){
+        
+        var total =1;
+        var especialidad = formulario.especialidad.value
+
+        total = especialidad;
+
+        if(formulario.especialidad.value == "clasica"){
+            total = total + 80;
+
+        }
+
+        else if(formulario.especialidad.value == "bbq"){
+            total = total + 100;
+
+        }
+
+        else if(formulario.especialidad.value == "tocino"){
+            total = total + 120;
+          }
+
+        else if(formulario.especialidad.value == "doble"){
+            total = total + 150;
+        }
+
+        else if(formulario.especialidad.value == "hawaina"){
+            total = total + 280;
+        }
+
+
+        else{
+            alert("");
+        }
+
+
+    }
+
+    document.getElementById('total').innerText
+
+
+
+
+</script>
+
+
+
 </html>
